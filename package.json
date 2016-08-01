@@ -9,7 +9,10 @@
     "email": "404784102@qq.com"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --hot --host 0.0.0.0",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack && webpack-dev-server --hot --host 0.0.0.0",
+    "build": "webpack"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
@@ -17,10 +20,9 @@
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
-    "font-loader": "^0.1.2",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0",
     "json-loader": "^0.5.4",
-    "less-loader": "^2.2.3",
-    "less-plugin-clean-css": "^1.5.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },

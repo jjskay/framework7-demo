@@ -3,17 +3,15 @@ const path = require('path');
 const webpack = require('webpack');
 const env = require('./src/config/development');
 
-var LessPluginCleanCSS = require('less-plugin-clean-css');
-const autoprefixer = require('autoprefixer')
+const autoprefixer = require('autoprefixer');
 
 const PROD = (process.env.NODE_ENV === 'development')
 
 module.exports = {
 	resolve: {
-		// root: path.resolve('./src'),
 		extensions: ['', '.js']
 	},
-	entry:'./src/app.js',
+	entry: './src/app.js',
 	output: {
 		path: path.join(__dirname, 'src/build/js'),
 		publicPath: './src/build/js',
@@ -22,38 +20,16 @@ module.exports = {
 	module: {
 		loaders: [{
 			test: /\.js?$/,
-			exclude: [/node_modules/],
-			loader: 'babel'
+			exclude: '/node_modules/',
+			loader: 'babel',
+			query: {
+				compact: false
+			}
 		}, {
 			test: /\.json$/,
 			exclude: [/node_modules/],
 			loaders: ['json-loader']
-		}, {
-			test: /\.css$/,
-			loaders: [
-				'style',
-				'css?importLoaders=1',
-				'font?format[]=truetype&format[]=woff&format[]=embedded-opentype'
-			]
-		}, {
-			test: /\.less$/,
-			loader: "style!css!less"
-		}, , {
-			test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-			loader: 'path-file-loader',
-			query: {
-				name: '[name].[hash].[ext]',
-				publicPath: './src/img',
-				cssPath: '../src/img'
-			}
-		}],
-		lessLoader: {
-			lessPlugins: [
-				new LessPluginCleanCSS({
-					advanced: true
-				})
-			]
-		}
+		}]
 	},
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin({
@@ -61,6 +37,7 @@ module.exports = {
 				warnings: false
 			}
 		}),
+		new webpack.optimize.DedupePlugin()
 	],
 	postcss: function() {
 		return [
@@ -71,9 +48,9 @@ module.exports = {
 		]
 	},
 	stats: {
-        colors: true
-    },
-    devtool: 'eval',
+		colors: true
+	},
+	devtool: 'eval',
 	devServer: {
 		contentBase: 'src/',
 		port: env.hot_server_port,
