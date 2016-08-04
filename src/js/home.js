@@ -55,13 +55,13 @@ function homeInit(f7) {
         return res
     }
 
-    const callback = (data, status) => {
+    const callback = (data, err, type) => {
+        if (err) {
+            f7.alert('请求失败,请重新发送请求!');
+            return;
+        }
         //cat sell list
         if (catType === 2) {
-            if (!(data && data.data && data.data.list && data.data.list.length)) {
-                f7.alert('请求失败,请重新发送请求!');
-                return;
-            }
             let catListHtml = '';
             $$.each(data.data.list, (index, item) => {
                 catListHtml += catListSingle(item);
@@ -88,7 +88,7 @@ function homeInit(f7) {
             }
             $$('.buy-list-foreach').html(butListHtml);
         }
-        if (data.data && data.data.list && status && catType === 2) {
+        if (data.data && data.data.list && type && catType === 2) {
             catType = 1;
             customAjax.ajax({
                 apiCategory: 'demandInfo',

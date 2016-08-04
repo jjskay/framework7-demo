@@ -20,6 +20,7 @@ class CustomClass {
     ajax(obj, callback) {
         const { api, data, apiCategory, type, isMandatory } = obj;
         const key = config[apiCategory][api];
+        const {timeout} = config;
         const saveKey = this.getKey(api, key, data);
         const url = `${config.url}${apiCategory}/${api}/`;
         const newData = this.getData(key, data);
@@ -29,12 +30,15 @@ class CustomClass {
         Dom7.ajax({
         	type,
             url,
+            timeout,
             data: newData,
-            success: function(data){
-            	store.set(saveKey, data);
-            	callback(JSON.parse(data),true);
+            error: function(err){
+                callback(null, err)
             },
-            faild: callback
+            success: function(data){
+                store.set(saveKey, data);
+                callback(JSON.parse(data),null,true);
+            }
         })
     }
 }
