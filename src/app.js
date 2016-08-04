@@ -16,6 +16,11 @@ mainView.router.load({
     url: './views/home.html'
 })
 
+/*
+* Trigger lazy load img.
+*/
+$$('img.lazy').trigger('lazy');
+
 const initEvent = f7.onPageInit('*', (page) => {
     page.name === 'home' && homeInit(f7);
 })

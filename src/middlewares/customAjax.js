@@ -2,12 +2,9 @@ import config from '../config/';
 import store from '../utils/locaStorage'
 
 class CustomClass {
-    init(dom) {
-        this.$$ = dom;
-    }
     getKey(api, key, val) {
         let res = `${api}`;
-        this.$$.each(key, (index, k) => {
+        Dom7.each(key, (index, k) => {
             const str = `_${k}_${val[index]}`;
             res += str;
         })
@@ -15,21 +12,21 @@ class CustomClass {
     }
     getData(key, val){
     	const obj = {};
-    	this.$$.each(key, (index, k) => {
+    	Dom7.each(key, (index, k) => {
             obj[k] = val[index];
         })
         return obj;
     }
     ajax(obj, callback) {
-        const { api, data, apiCategory, type } = obj;
+        const { api, data, apiCategory, type, isMandatory } = obj;
         const key = config[apiCategory][api];
         const saveKey = this.getKey(api, key, data);
         const url = `${config.url}${apiCategory}/${api}/`;
         const newData = this.getData(key, data);
 
         const cacheData = store.get(saveKey);
-        cacheData && callback(cacheData);
-        this.$$.ajax({
+        cacheData &&  !isMandatory && callback(cacheData);
+        Dom7.ajax({
         	type,
             url,
             data: newData,

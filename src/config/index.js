@@ -1,5 +1,6 @@
 const configs = {
-    url: 'http://api.yudada.com/',
+    url: 'http://api.test.yudada.com/',
+    backgroundImgUrl: '../img/app_icon_108.png',
     'demandInfo': {
         'getDemandInfoList': [
             "fishTypeId",

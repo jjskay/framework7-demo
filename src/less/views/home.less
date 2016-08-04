@@ -10,10 +10,27 @@
     .box-shadow-bottom(@bg-666);
     .searchbar-input {
         height: 3.8rem;
-        input.index-search-link {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            background-size: 1.7rem 1.7rem;
+        padding-left: 6.5rem;
+        position: relative;
+        .border-box;
+        .home-tabbar-logo {
+            width: 6rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: url('../../img/logoTitle.png') center no-repeat;
+            background-size: 6rem auto;
+        }
+        a {
+            display: block;
+            height: 3.8rem;
+            width: 100%;
+            input.index-search-link {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                background-size: 1.7rem 1.7rem;
+            }
         }
     }
 }
@@ -25,10 +42,50 @@
 
 .toolbar {
     height: 5rem;
-    line-height: 4rem;
+    vertical-align: middle;
+    &:before {
+        display: none;
+    }
     .toolbar-inner {
+        vertical-align: middle;
+        border-top: 1px solid #dadada;
         a {
             color: @text-333;
+            .text-center;
+            div {
+                font-size: 1.2rem;
+                &.iconfont {
+                    &:before {
+                        font-size: 2.4rem;
+                    }
+                }
+            }
+            &.edit-info {
+                display: block;
+                width: 6.4rem;
+                height: 6.4rem;
+                border-radius: 3.2rem;
+                color: @text-fff;
+                top: -1.8rem;
+                border-top: 1px solid #dadada;
+                .tab-border {
+                    width: 100%;
+                    height: 100%;
+                    background: @themeColor;
+                    .box-shadow(0px,
+                    -3px,
+                    3px,
+                    @text-fff);
+                    width: 6.4rem;
+                    height: 6.4rem;
+                    border-radius: 3.2rem;
+                    transform: scale(0.9);
+                    -webkit-transform: scale(0.9);
+                }
+                .iconfont {
+                    padding-top: 0.5rem;
+                }
+            }
             &.active {
                 color: @themeColor;
             }
@@ -135,70 +192,145 @@
                 }
             }
         }
-        .home-cat-list {
-            background: @bg-fff;
-            .cat-list-foreach {
-                .cat-list-info {
-                    padding: 2%;
-                    border-bottom: 1px solid #dadada;
-                    img {
-                        display: block;
-                        width: 100%;
-                    }
-                    .col-30 {
-                        width: 30%;
-                    }
-                    .col-70 {
-                        width: 67%;
-                        vertical-align: middle;
-                        .goods-weight,
-                        .goods-name,
-                        .goods-price,
-                        .goods-create-time,
-                        .cat-list-tags,
-                        .cat-list-address {
-                            .text-hidden;
+        .ajax-content {
+            display: none;
+            .home-cat-list {
+                background: @bg-fff;
+                margin-bottom: 1rem;
+                .cat-list-foreach {
+                    .cat-list-info {
+                        padding: 2%;
+                        border-bottom: 1px solid #dadada;
+                        img {
+                            display: block;
+                            width: 100%;
                         }
-                        .goods-name {
-                            color: @text-name;
-                            font-size: 2.4rem;
-                            width: 58%;
+                        .col-30 {
+                            width: 30%;
                         }
-                        .goods-price {
-                            width: 40%;
-                            color: @text-price;
-                            font-size: 1.6rem;
-                            .text-right;
-                        }
-                        .cat-list-text {
-                            color: @text-subtitle;
-                            font-size: 1.4rem;
-                            .goods-create-time {
+                        .col-70 {
+                            width: 67%;
+                            vertical-align: middle;
+                            .goods-weight,
+                            .goods-name,
+                            .goods-price,
+                            .goods-create-time,
+                            .cat-list-tags,
+                            .cat-list-address {
+                                .text-hidden;
+                            }
+                            .goods-name {
+                                color: @text-name;
+                                font-size: 2.0rem;
+                                width: 58%;
+                                .text-hidden;
+                            }
+                            .goods-price {
+                                width: 40%;
+                                color: @text-price;
+                                font-size: 1.6rem;
                                 .text-right;
+                                .text-hidden;
                             }
-                        }
-                        .cat-list-address {
-                            color: @text-subtitle;
-                            font-size: 1.4rem;
-                            span {
-                                padding-right: 5px;
+                            .cat-list-text {
+                                color: @text-subtitle;
+                                font-size: 1.4rem;
+                                .text-hidden;
+                                .goods-create-time {
+                                    .text-right;
+                                    .text-hidden;
+                                }
                             }
-                        }
-                        .cat-list-tags{
-                        	.button{
-                        		display: inline-block;
-                        		border-color: @themeColor;
-                        		color:@themeColor;
-                        		&.icon-v{
-                        			background: @bg-v;
-                        			color: @text-fff;
-                        			border-color: @bg-v;
-                        		}
-                        	}
+                            .cat-list-address {
+                                color: @text-subtitle;
+                                font-size: 1.4rem;
+                                .text-hidden;
+                                span {
+                                    padding-right: 5px;
+                                }
+                            }
+                            .cat-list-tags {
+                                padding-top: 0.5rem;
+                                .text-hidden;
+                                .button {
+                                    display: inline-block;
+                                    border-color: @themeColor;
+                                    color: @themeColor;
+                                    &.icon-v {
+                                        background: @bg-v;
+                                        color: @text-fff;
+                                        border-color: @bg-v;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
+            .home-go-more {
+                a {
+                    .text-center;
+                    height: 3rem;
+                    line-height: 3rem;
+                    color: @text-subtitle;
+                    font-size: 1.6rem;
+                    display: block;
+                    .text-hidden;
+                }
+            }
+            .home-buy-list {
+                background: @bg-fff;
+                .text-shadow(@text-fff);
+                .buy-list-info {
+                    padding: 2%;
+                    display: block;
+                    border-bottom: 1px solid #dadada;
+                    .buy-name {
+                        color: @text-name;
+                        font-size: 2.0rem;
+                        .text-hidden;
+                    }
+                    .buy-price {
+                        color: @text-price;
+                        font-size: 1.6rem;
+                        .text-right;
+                        .text-hidden;
+                    }
+                    .buy-spec {
+                        color: @text-name;
+                        font-size: 1.4rem;
+                        .text-hidden;
+                        padding: 0.4rem 0;
+                    }
+                    .buy-time {
+                        color: @text-subtitle;
+                        font-size: 1.4rem;
+                        .text-right;
+                        .text-hidden;
+                        padding: 0.4rem 0;
+                    }
+                    .home-buy-address {
+                        color: @text-subtitle;
+                        .text-hidden;
+                        span {
+                            margin-right: 0.8rem;
+                            &:before {
+                                color: @themeColor;
+                                font-size: 1.6rem;
+                                margin-right: 0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .home-loading {
+            width: 100%;
+            min-height: 150rem;
+            background-image: url('../../img/loading.gif');
+            background-position: center 15px;
+            background-repeat: no-repeat;
+            background-size: 50px 50px;
         }
     }
 }

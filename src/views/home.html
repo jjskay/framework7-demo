@@ -2,8 +2,10 @@
     <!-- Index search link -->
     <form class="searchbar index-search">
         <div class="searchbar-input">
-            <input type="search" placeholder="填写品种名称，例如黑鱼" class="index-search-link">
-            <a href="#" class="searchbar-clear"></a>
+            <div class="home-tabbar-logo"></div>
+            <a class="link" href="/views/search.html">
+                <input type="search" placeholder="填写品种名称，例如黑鱼" class="index-search-link">
+            </a>
         </div>
         <a href="#" class="searchbar-cancel">Cancel</a>
     </form>
@@ -47,7 +49,7 @@
                 <div class="list-block media-list row">
                     <a href="" class="home-categorys item-link item-content col-33">
                         <div class="item-media">
-                            <img src="img/ic_category_commonfish.png" width="32" alt="">
+                            <img data-src="img/ic_category_commonfish.png" src="img/app_icon_108.png" class="lazy" width="32" alt="">
                         </div>
                         <div class="item-inner">
                             <div class="item-title">常见鱼</div>
@@ -104,7 +106,7 @@
             <div class="home-cat-list">
                 <div class="home-content-title iconfont icon-edit">大家都在看</div>
                 <div class="cat-list-foreach">
-                    <div class="row cat-list-info">
+                    <a class="row cat-list-info">
                         <div class="col-30"><img src="http://yumaimai.img-cn-qingdao.aliyuncs.com/img/fish_type_img/10水产苗种/10005-鲤鱼苗.jpg@1e_1c_2o_0l_110h_110w_90q.src" alt=""></div>
                         <div class="col-70">
                             <div class="cat-list-title row">
@@ -123,7 +125,26 @@
                                 <span class="button">水产养殖</span>
                             </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="home-go-more"><a href="./views/filter.html" class="iconfont icon-right">查看更多鱼价</a></div>
+            </div>
+            <div class="home-buy-list">
+                <div class="home-content-title iconfont icon-edit">最新求购信息</div>
+                <div class="buy-list-foreach">
+                    <a href="" class="buy-list-info">
+                        <div class="row">
+                            <div class="col-65 buy-name">白鲢</div>
+                            <div class="col-35 buy-price">大量</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-65 buy-spec">规格：各种规格</div>
+                            <div class="col-35 buy-time">2小时前</div>
+                        </div>
+                        <div class="home-buy-address">
+                            <span class="iconfont icon-v">李先生</span> 指定产地：浙江省杭州市
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -132,9 +153,20 @@
     <div class="toolbar">
         <div class="toolbar-inner">
             <!-- Toolbar links -->
-            <a href="./views/home.html" class="link active no-animation">鱼大大</a>
-            <a href="./views/infomation.html" class="link">发布信息</a>
-            <a href="./views/user.html" class="link">个人中心</a>
+            <a href="./views/home.html" class="tab-link active no-animation">
+                <div class="iconfont icon-home"></div>
+                <div>鱼大大</div>
+            </a>
+            <a href="./views/infomation.html" class="tab-link edit-info">
+                <div class="tab-border">
+                    <div class="iconfont icon-edit"></div>
+                    <div>发布信息</div>
+                </div>
+            </a>
+            <a href="./views/user.html" class="tab-link">
+                <div class="iconfont icon-user"></div>
+                <div>个人中心</div>
+            </a>
         </div>
     </div>
 </div>

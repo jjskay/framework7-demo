@@ -1,5 +1,5 @@
 module.exports = {
-	get: function(key){
+	get: (key) => {
 		if(!window.localStorage.getItem(key)){
 			return;
 		}
@@ -7,7 +7,7 @@ module.exports = {
 		
 		return JSON.parse(value);
 	},
-	set: function(key, val){
+	set: (key, val) => {
 		let value;
 		if(typeof val === 'object'){
 			value = JSON.stringify(val);
@@ -16,7 +16,7 @@ module.exports = {
 		}
         window.localStorage.setItem(key, val)
 	},
-	remove: function(key){
+	remove: (key) => {
 		window.localStorage.removeItem('s')
 	}
 }
