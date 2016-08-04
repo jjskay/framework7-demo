@@ -1,0 +1,204 @@
+/*
+  index style!
+*/
+
+.index-search {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: 5.4rem;
+    background-color: @themeColor;
+    .box-shadow-bottom(@bg-666);
+    .searchbar-input {
+        height: 3.8rem;
+        input.index-search-link {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            background-size: 1.7rem 1.7rem;
+        }
+    }
+}
+
+.page>.index-search.searchbar~.page-content {
+    padding-top: 5.4rem;
+    padding-bottom: 4rem;
+}
+
+.toolbar {
+    height: 5rem;
+    line-height: 4rem;
+    .toolbar-inner {
+        a {
+            color: @text-333;
+            &.active {
+                color: @themeColor;
+            }
+        }
+    }
+}
+
+.page-home {
+    .page-content {
+        .home-content-title {
+            color: @themeColor;
+            .text-center;
+            .fw-l;
+            height: 3.6rem;
+            line-height: 3.6rem;
+            font-size: 1.6rem;
+            border-bottom: 1px solid #dadada;
+            &:before {
+                margin-right: 10px;
+                font-size: 2rem;
+                vertical-align: top;
+            }
+        }
+        & > .row {
+            border-bottom: 1px solid #dadada;
+            background: @bg-fff;
+            .text-shadow(@text-fff);
+            margin: 0 0 1rem 0;
+            div.col-50 {
+                width: 50%;
+                padding: 0.5rem 0;
+                .border-box;
+                .item-content {
+                    padding-left: 0.8rem;
+                }
+                .list-block .item-media+.item-inner {
+                    margin-left: 0.8rem;
+                    padding-right: 0.8rem;
+                    .item-title-row {
+                        font-size: 2rem;
+                        .text-hidden;
+                        line-height: 2.8rem;
+                    }
+                    .item-subtitle {
+                        font-size: 1.2rem;
+                        color: @text-subtitle;
+                    }
+                }
+                &.last-child {
+                    border-left: 1px solid #dadada;
+                }
+                .iconfont {
+                    font-size: 3.6rem;
+                }
+                .home-chushou {
+                    color: @text-chushou;
+                    &:before {
+                        color: @text-chushou;
+                    }
+                }
+                .home-qiugou {
+                    colr: @text-qiugou;
+                    &:before {
+                        color: @text-qiugou;
+                    }
+                }
+                .item-inner:after {
+                    background: @bg-fff;
+                }
+            }
+        }
+        .chosen-fingerling {
+            background-color: @bg-fff;
+            .text-shadow(@text-fff);
+            border-bottom: 1px solid #dadada;
+            margin-bottom: 1rem;
+            .chosen-fingerling-list {
+                padding: 0 2%;
+                width: 96%;
+                overflow: hidden;
+                &>div {
+                    margin: 0;
+                    line-height: 5rem;
+                    height: 5rem;
+                }
+                a {
+                    padding-left: 0;
+                    .item-media {}
+                    .item-inner {
+                        border: 0;
+                        margin-left: 5px;
+                        padding: 0 3px 0 0;
+                        &:after {
+                            height: 0;
+                            display: none;
+                        }
+                        .item-title {
+                            color: @text-category;
+                            font-size: 1.6rem;
+                            .fw-l;
+                            background: none;
+                        }
+                    }
+                }
+            }
+        }
+        .home-cat-list {
+            background: @bg-fff;
+            .cat-list-foreach {
+                .cat-list-info {
+                    padding: 2%;
+                    border-bottom: 1px solid #dadada;
+                    img {
+                        display: block;
+                        width: 100%;
+                    }
+                    .col-30 {
+                        width: 30%;
+                    }
+                    .col-70 {
+                        width: 67%;
+                        vertical-align: middle;
+                        .goods-weight,
+                        .goods-name,
+                        .goods-price,
+                        .goods-create-time,
+                        .cat-list-tags,
+                        .cat-list-address {
+                            .text-hidden;
+                        }
+                        .goods-name {
+                            color: @text-name;
+                            font-size: 2.4rem;
+                            width: 58%;
+                        }
+                        .goods-price {
+                            width: 40%;
+                            color: @text-price;
+                            font-size: 1.6rem;
+                            .text-right;
+                        }
+                        .cat-list-text {
+                            color: @text-subtitle;
+                            font-size: 1.4rem;
+                            .goods-create-time {
+                                .text-right;
+                            }
+                        }
+                        .cat-list-address {
+                            color: @text-subtitle;
+                            font-size: 1.4rem;
+                            span {
+                                padding-right: 5px;
+                            }
+                        }
+                        .cat-list-tags{
+                        	.button{
+                        		display: inline-block;
+                        		border-color: @themeColor;
+                        		color:@themeColor;
+                        		&.icon-v{
+                        			background: @bg-v;
+                        			color: @text-fff;
+                        			border-color: @bg-v;
+                        		}
+                        	}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

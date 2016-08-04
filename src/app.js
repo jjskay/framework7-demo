@@ -1,8 +1,21 @@
 import Framework7 from 'framework7';
-import _ from 'lodash';
-import {listAction} from './actions/listActions';
+// import _ from 'lodash';
+import store from './utils/locaStorage'
+import customAjax from './middlewares/customAjax';
+import { homeInit } from './js/home';
 
-listAction('3456');
+// init f7
+const f7 = new Framework7();
+const $$ = Dom7;
 
-const myApp = new Framework7();
-console.log(myApp)
+const mainView = f7.addView('.view-main', {
+        dynamicNavbar: true
+    })
+    // load index
+mainView.router.load({
+    url: './views/home.html'
+})
+
+const initEvent = f7.onPageInit('*', (page) => {
+    page.name === 'home' && homeInit(f7);
+})

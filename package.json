@@ -2,17 +2,17 @@
   "name": "Yudada",
   "Version": "0.1",
   "main": "bundle.js",
-  "author": "Yudada-FB",
+  "author": "Cash",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jjskay/framework7-demo/issues",
     "email": "404784102@qq.com"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot --host 0.0.0.0",
     "test": "echo \"Error: no test specified\" && exit 1",
     "less": "gulp less",
-    "dev": "webpack && webpack-dev-server --hot --host 0.0.0.0",
+    "dev": "webpack-dev-server --hot --host 0.0.0.0",
+    "watch": "webpack --watch && webpck",
     "build": "webpack"
   },
   "devDependencies": {
