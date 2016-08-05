@@ -1,9 +1,10 @@
 import config from '../config/';
 import customAjax from '../middlewares/customAjax';
-import { timeDifference } from '../utils/time'
+import { timeDifference } from '../utils/time';
+import { html } from '../utils/string';
 
-function homeInit(f7) {
-    const { backgroundImgUrl } = config;
+function homeInit(f7, view, page) {
+    const { backgroundImgUrl, pageSize } = config;
     const $$ = Dom7;
     let catType = 2;
 
@@ -67,11 +68,7 @@ function homeInit(f7) {
                 catListHtml += catListSingle(item);
             })
 
-            if (catListHtml.indexOf('<script') > -1) {
-                f7.alert('请求错误,请重新发送请求!')
-                return;
-            }
-            $$('.cat-list-foreach').html(catListHtml);
+            html($$('.cat-list-foreach'), catListHtml, f7);
             $$('.ajax-content').show(200);
             $$('.home-loading').hide(100);
         }
@@ -82,11 +79,7 @@ function homeInit(f7) {
                 butListHtml += buyLisSingle(item);
             })
 
-            if (butListHtml.indexOf('<script') > -1) {
-                f7.alert('请求错误,请重新发送请求!')
-                return;
-            }
-            $$('.buy-list-foreach').html(butListHtml);
+            html($$('.buy-list-foreach'), butListHtml, f7);
         }
         if (data.data && data.data.list && type && catType === 2) {
             catType = 1;
@@ -100,6 +93,7 @@ function homeInit(f7) {
 
         //pull to refresh done.
         f7.pullToRefreshDone();
+        $$('img.lazy').trigger('lazy');
     }
 
     /*
@@ -124,6 +118,20 @@ function homeInit(f7) {
             isMandatory: true
         }, callback);
     })
+
+    //load filter; 
+    $$('.home-chushou').click(() => {
+        view.router.load({
+            url: './views/filter.html',
+            animatePages: true,
+            query:{
+                pageSize,
+                type: 2
+            }
+        }) 
+    })
+
+
 }
 
 module.exports = {

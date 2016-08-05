@@ -1,7 +1,8 @@
 const configs = {
     url: 'http://api.test.yudada.com/',
     backgroundImgUrl: '../img/app_icon_108.png',
-    timeout: 6000, //api timeout, unit: ms
+    timeout: 30000, //api timeout, unit: ms
+    pageSize: 20,
     'demandInfo': {
         'getDemandInfoList': [
             "fishTypeId",
@@ -10,7 +11,8 @@ const configs = {
             "keyvalue",
             "pageSize",
             "pageNo",
-        ]
+        ],
+        'getFishTypeList/5': ['keyvalue'],
     }
 
 }

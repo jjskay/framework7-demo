@@ -17,26 +17,34 @@ class CustomClass {
         })
         return obj;
     }
+    /*
+    *   isMandatory: Whether it is mandatory to refresh ，default:false
+    *   noCache: Local storage is not required, default: false
+    */
     ajax(obj, callback) {
-        const { api, data, apiCategory, type, isMandatory } = obj;
+        const { api, data, apiCategory, type, isMandatory, noCache } = obj;
         const key = config[apiCategory][api];
         const {timeout} = config;
         const saveKey = this.getKey(api, key, data);
         const url = `${config.url}${apiCategory}/${api}/`;
         const newData = this.getData(key, data);
 
-        const cacheData = store.get(saveKey);
-        cacheData &&  !isMandatory && callback(cacheData);
+        if(!noCache){
+            const cacheData = store.get(saveKey);
+            cacheData &&  !isMandatory && callback(cacheData);
+        }
+        
         Dom7.ajax({
         	type,
             url,
             timeout,
             data: newData,
+            cache: false,
             error: function(err){
                 callback(null, err)
             },
             success: function(data){
-                store.set(saveKey, data);
+                !noCache && store.set(saveKey, data);
                 callback(JSON.parse(data),null,true);
             }
         })

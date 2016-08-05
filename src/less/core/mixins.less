@@ -2,9 +2,9 @@
   Create By 08/02/2016
 */
 
-.transition(@d) {
-    -webkit-transition-duration: @d;
-    transition-duration: @d;
+.transition(@a, @b, @c) {
+    -webkit-transition: @a @b @c;
+    transition: @a @b @c;
 }
 .delay(@d) {
     -webkit-transition-delay: @d;

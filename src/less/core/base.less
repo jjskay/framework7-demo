@@ -10,6 +10,7 @@
 @bg-v: #F68E1F;
 
 @boder-color: #e2e2e2;
+@border-da: #dadada;
 
 @text-333: #333;
 @text-fff: #fff;
@@ -19,7 +20,10 @@
 @text-category: #747474;
 @text-name: #101013;
 @text-price: #DF4048;
+@text-search: #747474;
 
+@appAnimate: ease;
+@appAnimateTime: 0.6s;
 @themeColor: @bg-color;
 html {
     font-size: 62.5%; //1rem = 10px
@@ -33,6 +37,12 @@ body {
 /*
    Public Style classes.
 */
+.ps-a{
+    position: absolute;
+}
+.ps-r{
+    position: relative;
+}
 .auto{
 	margin: 0 auto;
 }
@@ -69,6 +79,16 @@ body {
 	-webkit-box-sizing: border-box;
 }
 
+.filter-tab-icon{
+    display: inline-block;
+    .ps-r;
+    width: 0;
+    height: 0;
+    border-left: 0.4rem solid transparent;
+    border-right: 0.4rem solid transparent;
+    border-top: 0.5rem solid @text-search;
+    vertical-align: middle;
+}
 
 
 
