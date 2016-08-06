@@ -23,6 +23,7 @@ mainView.router.load({
  * Trigger lazy load img.
  */
 $$('img.lazy').trigger('lazy');
+
 const initEvent = f7.onPageInit('*', (page) => {
     $$('.link-back').on('click', () => {
         mainView.router.back({

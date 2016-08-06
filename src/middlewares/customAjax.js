@@ -11,7 +11,7 @@ class CustomClass {
         return res;
     }
     getData(key, val){
-    	const obj = {};
+    	let obj = {};
     	Dom7.each(key, (index, k) => {
             obj[k] = val[index];
         })

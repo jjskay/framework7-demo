@@ -17,6 +17,6 @@ module.exports = {
         window.localStorage.setItem(key, val)
 	},
 	remove: (key) => {
-		window.localStorage.removeItem('s')
+		window.localStorage.removeItem(key)
 	}
 }
