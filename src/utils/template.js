@@ -7,7 +7,7 @@ module.exports = {
         cat: (data) => {
             const { id, imge_path, price, fish_type_name, specifications, create_time, contact_name, province_name, city_name, personal_authentication_state, enterprise_authentication_state } = data;
             let res = '';
-            res += '<a class="row cat-list-info" href="./views/selldetail.html?infoId=' + id + '">' +
+            res += '<a class="row cat-list-info" href="./views/selldetail.html?id=' + id + '">' +
                 '<div class="col-30"><img data-src="' + `${imge_path || backgroundImgUrl}` + '" src="' + backgroundImgUrl + '" class="lazy-fadeIn lazy lazy-loaded"></div>' +
                 '<div class="col-70">' +
                 '<div class="cat-list-title row">' +

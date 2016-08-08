@@ -60,6 +60,7 @@ function searchInit(f7, view, page) {
 
     //load filter; 
     hideVal.click(() => {
+        f7.showIndicator();
         const val = hideVal.removeClass('on').find('span').html();
         view.router.load({
             url: './views/filter.html',

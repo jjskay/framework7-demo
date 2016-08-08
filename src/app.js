@@ -6,6 +6,7 @@ import { homeInit } from './js/home';
 import { searchInit } from './js/search';
 import { filterInit } from './js/filter';
 import { selldetailInit } from './js/selldetail';
+import { buydetailInit } from './js/buydetail'
 
 
 // init f7
@@ -43,4 +44,9 @@ const initEvent = f7.onPageInit('*', (page) => {
     page.name === 'search' && searchInit(f7, mainView, page);
     page.name === 'filter' && filterInit(f7, mainView, page);
     page.name === 'selldetail' && selldetailInit(f7, mainView, page);
+    page.name === 'buydetail' && buydetailInit(f7, mainView, page);
 })
+
+
+
+

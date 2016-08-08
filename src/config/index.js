@@ -13,7 +13,7 @@ const configs = {
             "pageNo",
         ],
         'getFishTypeList/5': ['keyvalue'],
-        'getDemandInfo': ['infoId']
+        'getDemandInfo': ['id']
     }
 
 }

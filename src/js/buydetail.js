@@ -3,7 +3,7 @@ import customAjax from '../middlewares/customAjax';
 import { home } from '../utils/template';
 import { html } from '../utils/string';
 
-function selldetailInit(f7, view, page) {
+function buydetailInit(f7, view, page) {
     f7.hideIndicator();
     const {id} = page.query;
     const callback = (data) => {
@@ -19,5 +19,5 @@ function selldetailInit(f7, view, page) {
 }
 
 module.exports = {
-    selldetailInit,
+    buydetailInit,
 }

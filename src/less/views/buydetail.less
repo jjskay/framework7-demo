@@ -1,4 +1,4 @@
-.page-selldetail {
+.page-buydetail {
     .navbar {
         height: 5.4rem;
         line-height: 5.4rem;
@@ -32,65 +32,39 @@
                 border-top: 1px solid @border-da;
                 line-height: 3rem;
                 .text-hidden;
-                &.first {
-                    border: none;
-                    height: auto;
-                    line-height: 1.2;
-                }
                 .col-30 {
                     color: @text-category;
                     font-size: 1.6rem;
                 }
             }
-            img {
-                display: block;
-                width: 100%;
-            }
-            .col-25 {
-                width: 25%;
-            }
-            .col-75 {
-                width: 70%;
-                vertical-align: middle;
-                padding-top: 0.5rem;
-                .goods-weight,
-                .goods-name,
-                .goods-price,
-                .goods-create-time,
-                .cat-list-tags,
-                .cat-list-address {
-                    .text-hidden;
-                }
+            .buydetail-info {
+                padding: 3% 2%;
+                border-top: 1px solid @border-da;
+                line-height: 1.2;
+                .text-hidden;
                 .goods-name {
+                    font-size: 2.2rem;
                     color: @text-name;
-                    font-size: 2.4rem;
-                    width: 58%;
-                    .text-hidden;
                 }
                 .goods-create-time {
-                    .text-right;
-                    .text-hidden;
-                    padding-top: 0.8rem;
                     color: @text-subtitle;
-                }
-                .goods-price {
-                    width: 40%;
-                    color: @text-price;
-                    font-size: 1.6rem;
                     .text-right;
-                    .text-hidden;
+                    padding-top: 0.8rem;
                 }
                 .selldetail-price-info {
-                    line-height: 2rem;
-                    font-size: 1.6rem;
                     padding-top: 1rem;
-                    color: @text-chushou;
+                    font-size: 1.6rem;
                     .selldetail-label {
+                        display: inline-block;
                         padding: 0.5rem;
-                        border-radius: 0.3rem;
-                        background: @text-chushou;
-                        .text-shadow(@text-chushou);
+                        border: 0.3rem;
                         color: @text-fff;
+                        background: @text-qiugou;
+                        border-radius: 0.3rem;
+                        .text-shadow(@text-qiugou);
+                    }
+                    .selldetail-price {
+                        color: @text-chushou;
                     }
                 }
             }
@@ -164,13 +138,13 @@
                 }
             }
             .selldetail-userinfo {
-            	padding: 2%;
-            	border-top: 1px solid @border-da;
+                padding: 2%;
+                border-top: 1px solid @border-da;
                 .col-18 {
                     width: 18%;
-                    img{
-                    	display: block;
-                    	width: 100%;
+                    img {
+                        display: block;
+                        width: 100%;
                     }
                 }
                 .col-80 {
@@ -182,8 +156,8 @@
                     .goods-price,
                     .goods-create-time,
                     .cat-list-tags,
-                    .cat-list-title{
-                    	padding-bottom: 1rem;
+                    .cat-list-title {
+                        padding-bottom: 1rem;
                     }
                     .user-name {
                         color: @text-name;
@@ -192,7 +166,7 @@
                         .text-hidden;
                     }
                     .user-time {
-                    	.text-right;
+                        .text-right;
                         .text-hidden;
                         color: @text-subtitle;
                         width: 40%;
@@ -201,8 +175,8 @@
                         width: 60%;
                         color: @text-subtitle;
                         .text-hidden;
-                        b{
-                        	.fw-l;
+                        b {
+                            .fw-l;
                         }
                     }
                     .user-cert {
@@ -211,39 +185,39 @@
                         .text-right;
                         border: 1px solid @text-test;
                         color: @text-test;
-						float: right;
-						padding: 0 0.3rem;
-						border-radius: 0.3rem;
-						max-width: 60%;
-						.text-hidden;
+                        float: right;
+                        padding: 0 0.3rem;
+                        border-radius: 0.3rem;
+                        max-width: 60%;
+                        .text-hidden;
                     }
                 }
             }
         }
     }
-    .selldetail-footer{
-    	.box-shadow-top(@bg-666);
-    	background: @bg-fff;
-    	.text-shadow(@text-fff);
-    	line-height: 5rem;
-    	.text-center;
-    	color: @text-price;
-    	.col-40{
-    		width: 40%;
-    	}
-    	.col-30{
-    		line-height: 2rem;
-			background: @themeColor;
-			color: @text-fff;
-			.text-shadow(@themeColor);
-			height:100%;
-			width: 30%;
-			border-left: 1px solid @text-fff;
-    		&:before{
-    			display: block;
-    			line-height: 2rem;
-    			padding-top: 0.5rem;
-    		}
-    	}
+    .selldetail-footer {
+        .box-shadow-top(@bg-666);
+        background: @bg-fff;
+        .text-shadow(@text-fff);
+        line-height: 5rem;
+        .text-center;
+        color: @text-price;
+        .col-40 {
+            width: 40%;
+        }
+        .col-30 {
+            line-height: 2rem;
+            background: @themeColor;
+            color: @text-fff;
+            .text-shadow(@themeColor);
+            height: 100%;
+            width: 30%;
+            border-left: 1px solid @text-fff;
+            &:before {
+                display: block;
+                line-height: 2rem;
+                padding-top: 0.5rem;
+            }
+        }
     }
 }
