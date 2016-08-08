@@ -5,7 +5,10 @@ const env = require('./src/config/development');
 
 const autoprefixer = require('autoprefixer');
 
-const PROD = (process.env.NODE_ENV === 'development')
+const PROD = (process.env.NODE_ENV === 'development');
+
+const staticBase = 'build/js';
+const contentBase = './src';
 
 module.exports = {
 	resolve: {
@@ -13,8 +16,8 @@ module.exports = {
 	},
 	entry: './src/app.js',
 	output: {
-		path: path.join(__dirname, 'src/build/js'),
-		publicPath: './src/build/js',
+		path: path.join(__dirname, contentBase, staticBase),
+		publicPath: staticBase,
 		filename: 'common.min.js'
 	},
 	module: {
@@ -47,12 +50,9 @@ module.exports = {
 			})
 		]
 	},
-	stats: {
-		colors: true
-	},
 	devtool: 'eval',
 	devServer: {
-		contentBase: 'src/',
+		contentBase,
 		port: env.hot_server_port,
 		hot: true,
 		inline: true

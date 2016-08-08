@@ -14,13 +14,13 @@
             font-size: 1.6rem;
             overflow: hidden;
             vertical-align: middle;
-            &:before{
-            	display: inline-block;
-            	font-size: 2.2rem;
-            	width: 1.2rem;
-            	padding-right: 0.5rem;
-            	.text-center;
-            	vertical-align: bottom;
+            &:before {
+                display: inline-block;
+                font-size: 2.2rem;
+                width: 1.2rem;
+                padding-right: 0.5rem;
+                .text-center;
+                vertical-align: bottom;
             }
         }
         .search-button {
@@ -46,6 +46,14 @@
             .transition(all, @appAnimateTime, @appAnimate);
             .text-center;
             z-index: -10;
+            &:before {
+                background: @bg-666;
+                border-radius: 50%;
+                color: @text-fff;
+                padding:0.3rem;
+                .text-shadow(@bg-666);
+                font-size: 1.4rem;
+            }
             &.on {
                 opacity: 1;
                 z-index: 10;
@@ -64,22 +72,24 @@
         background: url('../../img/ic_search.png') 0.8rem center no-repeat;
         background-size: 2rem auto;
         color: @text-search;
-        height:0;
+        height: 0;
         overflow: hidden;
-        .transition(height, @appAnimateTime, @appAnimate);
-		&.on{
-			height:4rem;
-		}
+        .transition(height,
+        @appAnimateTime,
+        @appAnimate);
+        &.on {
+            height: 4rem;
+        }
     }
-    .search-return-list{
-    	a{
-    		display: block;
-    		line-height: 4rem;
-    		.text-hidden;
-    		color: @text-search;
-    		overflow: hidden;
-    		border-top: 1px solid @border-da;
-    		padding: 0 1rem;
-    	}
+    .search-return-list {
+        a {
+            display: block;
+            line-height: 4rem;
+            .text-hidden;
+            color: @text-search;
+            overflow: hidden;
+            border-top: 1px solid @border-da;
+            padding: 0 1rem;
+        }
     }
 }

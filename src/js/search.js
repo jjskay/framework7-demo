@@ -1,6 +1,8 @@
 import config from '../config/';
 import customAjax from '../middlewares/customAjax';
 import { trim, html } from '../utils/string';
+import { search } from '../utils/template';
+
 
 function searchInit(f7, view, page) {
     const $$ = Dom7;
@@ -10,21 +12,15 @@ function searchInit(f7, view, page) {
     const list = $$('.search-return-list');
     let searchVal = '';
 
-    const singleLink = (data) => {
-        const { name, id } = data;
-        let li = '';
-        li += '<a href="' + `./views/filter.html?keyvalue＝${name}` + '">' + name + '</a>';
-        return li;
-    }
-
     const callback = (data) => {
         let listHtml = '';
         if (!data.data.length) {
+            html(list, listHtml, f7);
             return;
         }
 
         $$.each(data.data, (index, item) => {
-            listHtml += singleLink(item);
+            listHtml += search.link(item);
         })
         html(list, listHtml, f7);
     }
@@ -40,15 +36,16 @@ function searchInit(f7, view, page) {
     }, 900);
     input.on('keyup', () => {
         const val = input.val();
-        if (val === '') {
+        if (trim(val) === '') {
             hideVal.removeClass('on').find('span').html('');
             clear.removeClass('on');
+            html(list, '', f7);
         } else {
             hideVal.addClass('on').find('span').html(`“${val}”`);
             clear.addClass('on');
         }
 
-        if (trim(searchVal) !== trim(val) && val !== '') {
+        if (trim(searchVal) !== trim(val) && trim(val) !== '') {
             searchVal = val;
 
             customAjax.ajax({
@@ -59,6 +56,18 @@ function searchInit(f7, view, page) {
                 noCache: true
             }, callback)
         }
+    })
+
+    //load filter; 
+    hideVal.click(() => {
+        const val = hideVal.removeClass('on').find('span').html();
+        view.router.load({
+            url: './views/filter.html',
+            animatePages: true,
+            query:{
+                keyvalue: val
+            }
+        }) 
     })
 }
 
