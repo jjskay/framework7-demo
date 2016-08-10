@@ -77,7 +77,7 @@ function homeInit(f7, view, page) {
 
     //load filter; 
     $$('.home-chushou').click(() => {
-        f7.showIndicator();
+        f7.showPreloader();
         view.router.load({
             url: './views/filter.html',
             animatePages: true,

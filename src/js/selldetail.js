@@ -14,6 +14,9 @@ function selldetailInit(f7, view, page) {
         apiCategory: 'demandInfo',
         api: 'getDemandInfo',
         data: [id],
+        val: {
+            id
+        },
         type: 'get'
     }, callback);
 }

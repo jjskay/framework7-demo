@@ -14,7 +14,8 @@ const f7 = new Framework7();
 const $$ = Dom7;
 
 const mainView = f7.addView('.view-main', {
-        dynamicNavbar: true
+        dynamicNavbar: true,
+        swipeBackPage: true
     })
     // load index
 mainView.router.load({

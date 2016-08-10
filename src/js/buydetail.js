@@ -4,9 +4,10 @@ import { home } from '../utils/template';
 import { html } from '../utils/string';
 
 function buydetailInit(f7, view, page) {
-    f7.hideIndicator();
+    f7.showPreloader();
     const {id} = page.query;
     const callback = (data) => {
+        f7.hidePreloader();
     	console.log(data)
     }
 
@@ -14,6 +15,9 @@ function buydetailInit(f7, view, page) {
         apiCategory: 'demandInfo',
         api: 'getDemandInfo',
         data: [id],
+        val: {
+            id
+        },
         type: 'get'
     }, callback);
 }
